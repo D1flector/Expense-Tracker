@@ -7,6 +7,7 @@ const ExpenseForm = () => {
 
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState<Category>('Еда');
+  const [description, setDescription] = useState('')
   const addExpense = useExpenseStore(state => state.addExpense);
 
   const categories: Category[] = ['Еда', 'Транспорт', 'Развлечения', 'Связь', 'Жилье'];
@@ -19,10 +20,11 @@ const ExpenseForm = () => {
       return;
     }
 
-    addExpense({category, amount});
+    addExpense({category, amount, description});
 
     setAmount(0);
     setCategory('Еда')
+    setDescription('')
   }
 
   return (
@@ -42,6 +44,11 @@ const ExpenseForm = () => {
             <option key={category} value={category}>{category}</option>
           ))}
         </select>
+        <input type="text"
+        placeholder="Описание(необязательно)"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        />
         <button type="submit">Сохранить</button>
       </form>
     </>

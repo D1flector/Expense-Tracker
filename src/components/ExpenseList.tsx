@@ -17,6 +17,7 @@ return (
             <li key={expense.id}>
               <p>{expense.category}</p>
               <p>{expense.amount}</p>
+              <p>{expense.description}</p>
               <button onClick={() => deleteExpense(expense.id)}>Удалить трату</button>
             </li>
           ))}
