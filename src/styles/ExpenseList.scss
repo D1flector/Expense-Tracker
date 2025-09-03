@@ -32,3 +32,21 @@ ul {
     }
   }
 }
+
+.expense-list-header, ul li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.expense-list-header {
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
