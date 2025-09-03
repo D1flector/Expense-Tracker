@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import useExpenseStore from "../store/useExpenseStore";
 import type { Category } from "../types";
+import '../styles/ExpenseForm.scss'
 
 const ExpenseForm = () => {
 

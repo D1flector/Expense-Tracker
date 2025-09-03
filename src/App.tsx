@@ -4,10 +4,10 @@ import ExpenseForm from "./components/ExpenseForm"
 function App() {
 
   return (
-    <>
-      <ExpenseList />
+    <div className="app-container">
       <ExpenseForm />
-    </>
+      <ExpenseList />
+    </div>
   )
 }
 

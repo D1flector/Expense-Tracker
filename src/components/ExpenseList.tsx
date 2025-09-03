@@ -1,4 +1,5 @@
 import useExpenseStore from "../store/useExpenseStore";
+import '../styles/ExpenseList.scss'
 
 const ExpenseList = () => {
   
