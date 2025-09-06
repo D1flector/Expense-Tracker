@@ -1,52 +1,76 @@
-h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
+$list-bg: #ffffff;
+$list-text: #333;
+$list-text-light: #6c757d;
+$list-border: #dee2e6;
+$list-radius: 16px;
+$list-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
+$list-danger: #ef4444;
+$list-danger-hover: #dc2626;
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.expense-list-wrapper {
+  background-color: $list-bg;
+  border-radius: $list-radius;
+  padding: 1.5rem 2rem;
+  box-shadow: $list-shadow;
+  margin-top: 2rem;
+  color: $list-text;
 
-  li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    border-bottom: 1px solid #eee;
-
-    p {
-      margin: 0;
-    }
-
-    button {
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      padding: 0.3rem 0.6rem;
-      border-radius: 5px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #c82333;
-      }
-    }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
   }
 }
 
-.expense-list-header, ul li {
+.expense-list-header, .expense-item {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  gap: 15px;
+  grid-template-columns: 1fr 1fr 2fr 100px; 
+  gap: 1rem;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 0 1rem;
 }
 
 .expense-list-header {
-  font-weight: bold;
+  color: $list-text-light;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-bottom: 2px solid $list-border;
+  padding-bottom: 0.75rem;
+  text-transform: uppercase;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.expense-list { list-style-type: none; padding: 0; margin: 0; }
+
+.expense-item {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid $list-border;
+  transition: background-color 0.2s ease-in-out;
+  &:last-child { border-bottom: none; }
+  &:hover { background-color: #f8f9fa; }
+
+  &__amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: $list-text;
+  }
+  
+  &__action { text-align: right; }
+  
+  button {
+    background: transparent;
+    border: 1px solid $list-danger;
+    color: $list-danger;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $list-danger;
+      color: white;
+    }
+  }
 }

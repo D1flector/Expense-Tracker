@@ -2,15 +2,14 @@ import useExpenseStore from "../store/useExpenseStore";
 import '../styles/ExpenseList.scss'
 
 const ExpenseList = () => {
-  
-  const expenses = useExpenseStore(state => state.expenses)
-  const deleteExpense = useExpenseStore(state => state.deleteExpense)
+  const expenses = useExpenseStore(state => state.expenses);
+  const deleteExpense = useExpenseStore(state => state.deleteExpense);
 
   return (
-    <>
-      <h1>История трат:</h1>
+    <div className="expense-list-wrapper"> 
+      <h2>История трат:</h2>
       {expenses.length === 0 
-        ? (<p>Пока что трат не было</p>)
+        ? (<p className="empty-message">Пока что трат не было</p>)
         : (
           <>
             <div className="expense-list-header">
@@ -19,20 +18,24 @@ const ExpenseList = () => {
               <p>Описание</p>
               <p>Действие</p>
             </div>
-            <ul>
+            <ul className="expense-list">
               {expenses.map((expense) => (
-                <li key={expense.id}>
+                <li key={expense.id} className="expense-item">
                   <p>{expense.category}</p>
-                  <p>{expense.amount}</p>
-                  <p>{expense.description}</p>
-                  <button onClick={() => deleteExpense(expense.id)}>Удалить трату</button>
+                  <p className="expense-item__amount">{expense.amount.toLocaleString('ru-RU')} ₽</p> 
+                  <p>{expense.description || '-'}</p>
+                  <div className="expense-item__action">
+                    <button onClick={() => deleteExpense(expense.id)}>
+                      Удалить
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
           </>
         )
       }
-    </>
+    </div>
   )
 }
 

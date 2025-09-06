@@ -1,35 +1,77 @@
+@import 'index.scss'; 
+
+$form-border-color: rgba(255, 255, 255, 0.1);
+$form-radius: 16px;
+$form-text-muted: #94a3b8;
+
 form {
-  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid $form-border-color;
+  border-radius: $form-radius;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
   align-items: flex-end;
-  gap: 1rem;
-  margin-bottom: 2rem;
 
   .form-control {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+
+    &:nth-child(3) {
+      grid-column: 1 / -1;
+    }
   }
 
   label {
-    margin-bottom: 0.25rem;
-    font-size: 0.875rem;
-    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $form-text-muted;
   }
 
-  input, select, button {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+  input, select {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid $form-border-color;
+    border-radius: 10px;
+    padding: 0.8rem;
+    color: $text-color;
     font-size: 1rem;
-  }
 
-  button {
-    background-color: #007bff;
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.5);
+    }
+  }
+  
+  select {
+    option {
+      background: #ffffff;
+      color: #1e1b4b;
+    }
+  }
+  
+  button[type="submit"] {
+    grid-column: 1 / -1;
+    background-color: $primary-color;
     color: white;
-    cursor: pointer;
     border: none;
+    border-radius: 10px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: $primary-color-hover;
+      transform: translateY(-2px);
     }
   }
 }

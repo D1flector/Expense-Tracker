@@ -5,6 +5,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <h1 className="app-title">Трекер расходов</h1>
       <ExpenseForm />
       <ExpenseList />
     </div>

@@ -1,31 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
 
-$primary-color: #007bff;
-$primary-color-hover: #0056b3;
-$danger-color: #dc3545;
-$danger-color-hover: #c82333;
-$success-color: #28a745;
-$background-color: #f4f7f9;
-$card-background-color: #ffffff;
-$text-color: #333;
-$text-color-light: #6c757d;
-$border-color: #dee2e6;
-$border-radius: 8px;
-$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: $background-color;
-  color: $text-color;
-}
+$primary-color: #6a5af9;
+$primary-color-hover: #5a4af7;
+$danger-color: #ef4444;
+$danger-color-hover: #dc2626;
+$text-color: #e2e8f0;
+$text-color-muted: #94a3b8;
+$border-color: rgba(255, 255, 255, 0.1);
+$border-radius: 16px;
+$card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+$card-background-color: rgba(255, 255, 255, 0.08);
+$card-backdrop-blur: 10px;
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: linear-gradient(120deg, #1e1b4b 0%, #312e81 100%);
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 .app-container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 20px;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 2.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+input, select {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  padding: 0.8rem;
+  color: $text-color;
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.5);
+  }
+
+  &::placeholder {
+    color: $text-color-muted;
+  }
 }
