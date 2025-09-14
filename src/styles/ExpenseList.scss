@@ -4,8 +4,6 @@ $list-text-light: #6c757d;
 $list-border: #dee2e6;
 $list-radius: 16px;
 $list-shadow: 0 6px 12px rgba(0, 0, 0, 0.07);
-$list-danger: #ef4444;
-$list-danger-hover: #dc2626;
 
 .expense-list-wrapper {
   background-color: $list-bg;
@@ -23,15 +21,12 @@ $list-danger-hover: #dc2626;
   }
 }
 
-.expense-list-header, .expense-item {
+.expense-list-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 100px; 
+  grid-template-columns: 1fr 1fr 2fr 160px; 
   gap: 1rem;
   align-items: center;
   padding: 0 1rem;
-}
-
-.expense-list-header {
   color: $list-text-light;
   font-size: 0.875rem;
   font-weight: 500;
@@ -40,37 +35,8 @@ $list-danger-hover: #dc2626;
   text-transform: uppercase;
 }
 
-.expense-list { list-style-type: none; padding: 0; margin: 0; }
-
-.expense-item {
-  padding: 1.25rem 1rem;
-  border-bottom: 1px solid $list-border;
-  transition: background-color 0.2s ease-in-out;
-  &:last-child { border-bottom: none; }
-  &:hover { background-color: #f8f9fa; }
-
-  &__amount {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: $list-text;
-  }
-  
-  &__action { text-align: right; }
-  
-  button {
-    background: transparent;
-    border: 1px solid $list-danger;
-    color: $list-danger;
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background-color: $list-danger;
-      color: white;
-    }
-  }
+.expense-list { 
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
 }

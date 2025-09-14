@@ -1,0 +1,81 @@
+$list-border: #dee2e6;
+$color-primary: #2563eb;
+$color-primary-hover: #1d4ed8;
+$color-secondary: #e2e8f0;
+$color-secondary-hover: #cbd5e1;
+$color-danger: #ef4444;
+$color-danger-hover: #dc2626;
+$list-text: #333;
+
+.expense-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 160px; 
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid $list-border;
+  transition: background-color 0.2s ease-in-out;
+
+  &:last-child { 
+    border-bottom: none; 
+  }
+  
+  &:not(.is-editing):hover { 
+    background-color: #f8f9fa; 
+  }
+
+  &__amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: $list-text;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid $list-border;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+.button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+
+  &--primary {
+    background-color: $color-primary;
+    color: white;
+    &:hover { background-color: $color-primary-hover; }
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
+    color: $list-text;
+    &:hover { background-color: $color-secondary-hover; }
+  }
+
+  &--danger {
+    background-color: $color-danger;
+    color: white;
+    &:hover { background-color: $color-danger-hover; }
+  }
+}

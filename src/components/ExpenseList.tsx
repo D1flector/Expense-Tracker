@@ -1,6 +1,6 @@
 import useExpenseStore from "../store/useExpenseStore";
 import '../styles/ExpenseList.scss';
-import ExpenseItem from "./ExpenseItem"; // Импорт остается
+import ExpenseItem from "./ExpenseItem";
 
 const ExpenseList = () => {
   const expenses = useExpenseStore(state => state.expenses);
