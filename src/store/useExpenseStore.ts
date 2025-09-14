@@ -5,6 +5,7 @@ interface ExpenseStore {
   expenses: Expense[];
   addExpense: (data: Omit<Expense, 'id'>) => void;
   deleteExpense: (id: string) => void;
+  updateExpense: (id: string, updatedData: Partial<Expense>) => void;
 }
 
 const useExpenseStore = create<ExpenseStore>( (set, get) => ({
@@ -20,6 +21,17 @@ const useExpenseStore = create<ExpenseStore>( (set, get) => ({
 
   deleteExpense: (id) => {
     set( (state) => ( {expenses: state.expenses.filter((expense) => expense.id !== id)} ))
+  },
+
+  updateExpense: (id, updatedData) => {
+    set( (state) => ({
+      expenses: state.expenses.map( (expense) => {
+        if (expense.id === id) {
+          return { ...expense, ...updatedData };
+        }
+        return expense;
+      })
+    }))
   },
 
 }))
