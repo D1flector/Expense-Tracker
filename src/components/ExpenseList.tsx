@@ -1,9 +1,9 @@
 import useExpenseStore from "../store/useExpenseStore";
-import '../styles/ExpenseList.scss'
+import '../styles/ExpenseList.scss';
+import ExpenseItem from "./ExpenseItem"; // Импорт остается
 
 const ExpenseList = () => {
   const expenses = useExpenseStore(state => state.expenses);
-  const deleteExpense = useExpenseStore(state => state.deleteExpense);
 
   return (
     <div className="expense-list-wrapper"> 
@@ -20,16 +20,7 @@ const ExpenseList = () => {
             </div>
             <ul className="expense-list">
               {expenses.map((expense) => (
-                <li key={expense.id} className="expense-item">
-                  <p>{expense.category}</p>
-                  <p className="expense-item__amount">{expense.amount.toLocaleString('ru-RU')} ₽</p> 
-                  <p>{expense.description || '-'}</p>
-                  <div className="expense-item__action">
-                    <button onClick={() => deleteExpense(expense.id)}>
-                      Удалить
-                    </button>
-                  </div>
-                </li>
+                <ExpenseItem key={expense.id} expense={expense} />
               ))}
             </ul>
           </>
